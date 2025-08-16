@@ -58,7 +58,7 @@ SELECT *
 FROM layoffs_staging
 WHERE company = 'Oda'
 ;
--- it looks like these are all legitimate entries and shouldn't be deleted. We need to really look at every single row to be accurate
+-- it looks like these are all legitimate entries and shouldn't be deleted. We need to really look at every single row to be accurate 
 
 -- these are our real duplicates 
 SELECT *
@@ -107,7 +107,7 @@ WHERE (company, location, industry, total_laid_off, percentage_laid_off, `date`,
 ) AND row_num > 1;
 
 -- one solution, which I think is a good one. Is to create a new column and add those row numbers in. Then delete where row numbers are over 2, then delete that column
--- so let's do it!!
+-- so let's do it!! deleting duplicate
 
 ALTER TABLE layoffs_staging ADD row_num INT;
 
